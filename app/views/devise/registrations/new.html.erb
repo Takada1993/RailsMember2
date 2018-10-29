@@ -1,0 +1,32 @@
+<div class="col-md-6">
+<h2>新規登録</h2>
+
+  <%= form_for @user, url: {action: "confirm"} do |f| %>
+    <%= devise_error_messages! %>
+  
+    <div class="form-group">
+      <%= f.label "名前", class: "control-label" %>
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label "メールアドレス", class: "control-label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label "パスワード", class: "control-label" %>
+      <% if @minimum_password_length %>
+      <em>(最小<%= @minimum_password_length %> 文字)</em>
+      <% end %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    </div>
+  
+    <div class="form-group">
+      <%= f.label "パスワード(確認)", class: "control-label" %>
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    </div>
+  
+    <%= f.submit "登録", class: 'btn btn-success btn-centered' %>
+  <% end %>
+</div>

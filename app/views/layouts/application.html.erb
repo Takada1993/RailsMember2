@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light navbar navbar-dark bg-dark">
+        <h1 class="navbar-brand"><%= link_to 'ポートフォリオ', article_top_path, :class=>'nav-link' %></h1>
+       
+        <div class="collapse navbar-collapse" id="Navber">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <% if user_signed_in? %>
+                <div class="navbar-text"><span><%= current_user.name %>さん</span></div>
+              <% else %>
+                <div class="navbar-text"><span>ゲストさん</span></div>
+              <% end %>
+            </li>
+            <% if user_signed_in? %>
+              <li class="nav-item col-sm">
+                <%=  link_to 'プロフィール変更', edit_user_registration_path, :class=>'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%=  link_to 'ログアウト', destroy_user_session_path, method: :delete, :class=>'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%=  link_to '新規記事投稿', article_input_path, :class=>'nav-link' %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to '新規登録', new_user_registration_path, :class=>'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'ログイン', new_user_session_path, :class=>'nav-link' %>
+              </li>
+            <% end %>
+          </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input type="search" class="form-control mr-sm-2" placeholder="検索..." aria-label="検索...">
+              <button type="submit" class="btn btn-outline-success my-2 my-sm-0">検索</button>
+            </form>
+        </div>
+      </nav>
+
+    </header>
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div>
+    </div>
+      
+    <div class="copyright">
+      <%= render 'layouts/footer' %>
+    </div>
+    
+  </body>
+</html>

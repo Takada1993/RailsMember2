@@ -1,0 +1,6 @@
+<ul>
+  <% @articles.each do |f| %>
+    <li><%= link_to f.articleName, article_show_path(:articleNumber => f.articleNumber), :method => :post %></li>
+    <li><%= simple_format f.articleDetail %></li>
+  <% end %>
+</ul>

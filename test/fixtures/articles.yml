@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  articleId: 1
+  articleName: MyString
+  articleNumber: 1
+  articleClassification: 1
+  articleContributionDate: 2018-10-17 01:33:35
+  recommendedClassification: 1
+  pickUpClassification: 1
+  latestClassification: 1
+  deleteClassification: 1
+
+two:
+  articleId: 1
+  articleName: MyString
+  articleNumber: 1
+  articleClassification: 1
+  articleContributionDate: 2018-10-17 01:33:35
+  recommendedClassification: 1
+  pickUpClassification: 1
+  latestClassification: 1
+  deleteClassification: 1

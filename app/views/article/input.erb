@@ -1,0 +1,26 @@
+<% provide(:title, '新規記事登録') %>
+<div class="col-md-6">
+  <h2>新規記事登録</h2>
+    
+  <%= form_tag(:controller => "article", :action => "create") do %>
+      
+    <div class="form-group">
+      <%= label :articleName, 'タイトル', class: "control-label" %>
+      <%= text_field :articleName, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+      <%= label :articleDetail, '本文', class: "control-label" %>
+      <%= text_area :articleDetail, :size => "50x50", class: "form-control"  %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :articleDetails ,'種類', class: "control-label" %>
+      <%= select :articleClassification, :values, [["PS4", "1"], ["Switch", "2"], ["PCゲーム", "3"], ["スマホ", "4"]], class: "form-control" %>
+    </div>
+
+      <%= submit_tag '戻る', :name=>'back_btn', class: 'btn btn-success btn-centered'  %>
+      <%= submit_tag '登録', :name=>'regist_btn', class: 'btn btn-success btn-centered' %>
+
+  <% end %>
+</div>
