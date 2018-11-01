@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'article/show'
   get 'article/create'
   post 'article/create'
+  get 'article/search'
+  post 'article/search'
 
   devise_for :users, :controllers => {
    :registrations => 'users/registrations'
